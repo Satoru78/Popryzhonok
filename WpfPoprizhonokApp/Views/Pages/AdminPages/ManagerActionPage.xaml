@@ -1,0 +1,27 @@
+﻿<Page x:Class="WpfPoprizhonokApp.Views.Pages.AdminPages.ManagerActionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfPoprizhonokApp.Views.Pages.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManagerActionPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+            <TextBlock Text="Фамилия: "/>
+            <TextBox Name="TextBoxLastName" Text="{Binding Manager.Lastname}"/>
+            <TextBlock Text="Имя: "/>
+            <TextBox Name="TextBoxFirstName" Text="{Binding Manager.Firstname}"/>
+            <TextBlock Text="Адрес:"/>
+            <TextBox Name="TextBoxAdress" Text="{Binding Manager.Adress}"/>
+            <TextBlock Text="Почта: "/>
+            <TextBox Name="TextBoxEmail" Text="{Binding Manager.Email}"/>
+            <TextBlock Text="Выберете роль:"></TextBlock>
+            <ComboBox ItemsSource="{Binding Roles}" SelectedItem="{Binding Manager.Role}" DisplayMemberPath="Title"></ComboBox>
+
+            <Button Content="Сохранить данные" Margin="0,5" Name="ManagerDataSave" Click="ManagerDataSave_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

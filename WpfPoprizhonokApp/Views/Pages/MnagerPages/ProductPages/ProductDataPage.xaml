@@ -1,0 +1,51 @@
+﻿<Page x:Class="WpfPoprizhonokApp.Views.Pages.MnagerPages.ProductPages.ProductDataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfPoprizhonokApp.Views.Pages.MnagerPages.ProductPages"
+      Loaded="Page_Loaded"
+      FontFamily = "Comic Sans MS"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductDataPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+            <Button Content="Назад" Name="ProductBackBtn" Click="ProductBackBtn_Click" Width="100"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Поиск:"></TextBlock>
+            <TextBox Name="ProductSearchTxb" SelectionChanged="ProductSearchTxb_SelectionChanged" Width="250"></TextBox>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <DataGrid Name="ProductData" AutoGenerateColumns="False" ColumnWidth="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№" Binding="{Binding ID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Title}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Тип" Binding="{Binding ProductType.Title}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Артикул" Binding="{Binding Articul}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Количество человек для производства" Binding="{Binding CountOfEmployees}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Номер цеха" Binding="{Binding WorkshopNumber}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Name="NoProduct" Visibility="Collapsed" Grid.Row="1">
+                <TextBlock Text="Список продуктов пуст!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" FontWeight="SemiBold"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Добавить" Name="AddProductBtn" Click="AddProductBtn_Click" Width="250"></Button>
+                <Button Content="Редактировать" Name="EditProductBtn" Click="EditProductBtn_Click" Width="250" Margin="5,0"></Button>
+                <Button Content="Удалить" Name="DeleteProductBtn" Click="DeleteProductBtn_Click" Width="250"></Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
